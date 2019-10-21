@@ -418,6 +418,7 @@ class ResourceExplorerScreen extends Component<Props, State> {
             this.props.navigation.navigate('Home', { downloadedFiles: downloadedFiles, screen: 'subfolder' })
         });
         this.setState({ isResourcesUpdating: false })
+        this.closeSearch();
     }
 
     public async closeSearch() {
