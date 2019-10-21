@@ -362,6 +362,7 @@ class ResourceExplorerScreen extends Component<Props, State> {
             content: Constant.content,
         })
         this.props.navigation.navigate('Home')
+        this.closeSearch()                
     }
 
     private goToPreviousScreen() {
@@ -373,6 +374,7 @@ class ResourceExplorerScreen extends Component<Props, State> {
             content: Constant.content,
         });
         this.props.navigation.pop();
+        this.closeSearch()        
     }
 
     private onBreadCrumbPress(index: number, name: string) {
@@ -391,6 +393,7 @@ class ResourceExplorerScreen extends Component<Props, State> {
             content: Constant.content,
         });
         this.props.navigation.goBack(key);
+        this.closeSearch()
     }
 
     public async updateResouces() {
@@ -415,6 +418,7 @@ class ResourceExplorerScreen extends Component<Props, State> {
             this.props.navigation.navigate('Home', { downloadedFiles: downloadedFiles, screen: 'subfolder' })
         });
         this.setState({ isResourcesUpdating: false })
+        this.closeSearch();
     }
 
     public async closeSearch() {

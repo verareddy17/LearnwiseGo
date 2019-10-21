@@ -147,7 +147,7 @@ class FileManagerScreen extends Component<Props, State> {
                 />
                 <ImageBackground source={{ uri: this.state.orientation === Constant.portrait ? Constant.portraitImagePath : Constant.landscapeImagePath }} style={{ width: this.state.width, height: this.state.height }}>
                     {this.props.downloadState.isLoading ? <View /> : <Header style={styles.headerContainer}>
-                        <TouchableOpacity style={styles.headerLogoContainer} onPress={() => this.props.navigation.pop()}>
+                        <TouchableOpacity style={styles.headerLogoContainer} onPress={() => this.props.navigation.navigate('Home')}>
                             <Image source={{ uri: Constant.headerImage }} style={styles.headerImage} />
                         </TouchableOpacity>
                         {this.state.isSearchEnable ? <View style={styles.searchBarContainer}>
