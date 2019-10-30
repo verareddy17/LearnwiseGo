@@ -1,8 +1,8 @@
-import { Alert, Image, View } from 'react-native';
+import { Alert, Image, View, AsyncStorage } from 'react-native';
 import Config from 'react-native-config';
 import RNFetchBlob from 'rn-fetch-blob';
 import { FileType, Constant } from '../constant';
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 import { DownloadedFilesModel } from '../models/downloadedfile-model';
 import { SubResourceModel, ResourceModel } from '../models/resource-model';
 import PreviewManager from './preview-manager';

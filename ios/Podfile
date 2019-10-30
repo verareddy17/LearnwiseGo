@@ -2,6 +2,8 @@
 # platform :ios, '9.0'
 
 target 'MagnifiMobile' do
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   pod 'AppCenter/Crashes', '~> 2.0.1'
   pod 'AppCenter/Analytics', '~> 2.0.1'
   pod 'AppCenterReactNativeShared', '~> 2.0.0'
@@ -10,12 +12,7 @@ target 'MagnifiMobile' do
 
   # Pods for MagnifiMobile
 
-  
-
   platform :ios, '9.0'
-  pod 'react-native-orientation', :path => '../node_modules/react-native-orientation'
-
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
   target 'MagnifiMobileTests' do
     inherit! :search_paths

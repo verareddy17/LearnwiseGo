@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './home-style';
 import { View, Text, Button, Container, Content, Header, Left, Right, Icon, Body, Title, Item, Input, Spinner, Badge, List, ListItem, Toast } from 'native-base';
 import { NavigationScreenProp, SafeAreaView, NavigationEvents } from 'react-navigation';
-import { ListView, Image, TouchableOpacity, Alert, FlatList, ImageBackground, Dimensions, Platform, Keyboard, WebView, ProgressViewIOS, ProgressBarAndroid, StatusBar } from 'react-native';
+import { ListView, Image, TouchableOpacity, Alert, FlatList, ImageBackground, Dimensions, Platform, Keyboard, WebView, ProgressViewIOS, ProgressBarAndroid, StatusBar, AsyncStorage } from 'react-native';
 import { fetchResources, updateResources, ResourceResponse } from '../../redux/actions/resource-action';
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators, AnyAction } from 'redux';
@@ -94,6 +94,8 @@ class HomeScreen extends Component<Props, State> {
     }
 
     public async componentWillMount() {
+        let fcmToken = await AsyncStorage.getItem('fcmToken');
+        console.log('fcm token',fcmToken)
         this.setState({ downloadedFiles: [] });
         await LocalDbManager.getDownloadedFiles(async (downloadedFiles) => {
             await this.props.fetchdownloadedFiles(downloadedFiles);

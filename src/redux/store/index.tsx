@@ -8,7 +8,7 @@ import settingReducer from '../../redux/reducers/settings-reducer';
 import downloadReducer from '../../redux/reducers/download-reducer';
 import downloadedFile from '../../redux/reducers/downloaded-file-reducer'
 import { persistStore, persistReducer } from 'redux-persist';
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 import searchReducer from '../../redux/reducers/search-reducer';
 
 const rootReducer = combineReducers({
@@ -20,21 +20,21 @@ const rootReducer = combineReducers({
     downloadedFilesData: downloadedFile,
     searchData: searchReducer,
 });
-const persistConfig = {
-    timeout: 0,
-    // Root?
-    key: 'root',
-    // Storage Method (React Native)
-    storage: AsyncStorage,
-    // Whitelist (Save Specific Reducers)
-    whitelist: ['resourceReducer', 'loginReducer', 'settingReducer', 'downloadedFile'],
-};
+// const persistConfig = {
+//     timeout: 0,
+//     // Root?
+//     key: 'root',
+//     // Storage Method (React Native)
+//     storage: AsyncStorage,
+//     // Whitelist (Save Specific Reducers)
+//     whitelist: ['resourceReducer', 'loginReducer', 'settingReducer', 'downloadedFile'],
+// };
 
-// Middleware: Redux Persist Persisted Reducer
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// // Middleware: Redux Persist Persisted Reducer
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = createStore(persistedReducer, applyMiddleware(thunk));
-let persistor = persistStore(store);
+const store = createStore(rootReducer, applyMiddleware(thunk));
+// let persistor = persistStore(store);
 
 console.log('getstate', store.getState());
-export { store, persistor };
+export { store };
